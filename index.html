@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Capacitación conector de campo</title>
+<title>Autochequeo de herramientas</title>
 <style>
   /* Sistema de diseño Cobra vigente (el mismo de la Academia Técnica) */
   :root {
@@ -86,6 +86,17 @@
   .panel { background: var(--white); border: 1px solid var(--line); border-top: 3px solid var(--amber); padding: clamp(24px, 4vw, 40px); display: grid; gap: 24px; grid-template-columns: 1fr auto; align-items: center; }
   @media (max-width: 760px) { .panel { grid-template-columns: 1fr; } }
   .panel p { margin: 0 0 8px; }
+  @media (max-width: 760px) {
+    .panel .btn-main { order: -1; align-items: center; text-align: center; }
+    main { padding-top: 28px; }
+    h2 { font-size: 24px; }
+    .bajada { margin-bottom: 16px; font-size: 16px; }
+  }
+  .lista-titulo { margin: 0 0 8px; font-weight: 600; color: var(--navy); }
+  .revisas { list-style: none; margin: 0 0 16px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; }
+  @media (max-width: 560px) { .revisas { grid-template-columns: 1fr; } }
+  .revisas li { position: relative; padding-left: 16px; font-size: 16px; }
+  .revisas li::before { content: ""; position: absolute; left: 0; top: .6em; width: 7px; height: 7px; background: var(--amber); }
   .aviso { background: var(--warn-bg); border-left: 3px solid var(--amber); padding: 12px 16px; font-size: 14.5px; color: #4a3500; }
   .semana { font: 500 12px ui-monospace, Consolas, monospace; color: var(--muted); letter-spacing: .04em; margin-top: 14px !important; }
   .btn-main {
@@ -131,30 +142,28 @@
 <div class="portada">
   <svg id="fibras" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 1200 100"></svg>
   <div class="wrap"><div class="txt">
-    <p class="etq">Fibra óptica · Terreno</p>
-    <h1>Conector de campo <b>paso a paso</b></h1>
-    <p>Mira cómo arman el conector tus compañeros y revisa tus herramientas cada semana.</p>
+    <p class="etq">Cada semana</p>
+    <h1>Autochequeo de <b>herramientas</b></h1>
+    <p>Revisa tus herramientas y avisa a tu supervisor si te falta algo.</p>
   </div></div>
 </div>
 
 <main><div class="wrap">
 
-  <section>
-    <p class="etq">Entrenamiento</p>
-    <h2>Videos de <b>armado</b></h2>
-    <p class="bajada">Cada semana se suma el video de un técnico. Úsalos para entrenarte.</p>
-    <div class="tabs" id="filtro" role="group" aria-label="Filtrar por región"></div>
-    <div class="grid" id="videos"></div>
-  </section>
-
-  <section>
-    <p class="etq">Cada semana</p>
-    <h2>Autochequeo de <b>herramientas</b></h2>
-    <p class="bajada">Revisa tus herramientas y responde el formulario oficial.</p>
+  <section id="autochequeo">
+    <p class="etq">Tu revisión de la semana</p>
+    <h2>Haz tu <b>autochequeo</b></h2>
+    <p class="bajada">Revisa que lleves todo contigo y responde el formulario oficial, una vez por semana.</p>
     <div class="panel">
       <div>
-        <p>El formulario tiene 73 puntos: herramientas de fibra, equipos de altura, EPP y documentos del vehículo.</p>
-        <div class="aviso">Si te falta algo, avisa a tu supervisor para evitar incumplimientos en auditorías.</div>
+        <p class="lista-titulo">El formulario revisa 73 puntos:</p>
+        <ul class="revisas">
+          <li>Herramientas de fibra óptica y medición</li>
+          <li>Herramientas y equipos de trabajo</li>
+          <li>Documentos y vehículo</li>
+          <li>Equipos de altura y protección (EPP)</li>
+        </ul>
+        <div class="aviso">Después de hacerlo, avisa a tu supervisor si te falta alguna herramienta, para evitar incumplimientos en auditorías y posibles sanciones.</div>
         <p class="semana" id="semana"></p>
       </div>
       <a class="btn-main" id="btnForm" href="#" target="_blank" rel="noopener"><small>Semana en curso</small>Hacer el autochequeo &rarr;</a>
@@ -162,7 +171,15 @@
   </section>
 
   <section>
-    <p class="etq">Procedimiento</p>
+    <p class="etq">Complemento · Entrenamiento</p>
+    <h2>Videos de <b>armado</b></h2>
+    <p class="bajada">Además, aprende a armar el conector de campo viendo a tus compañeros. Cada semana se suma el video de un técnico.</p>
+    <div class="tabs" id="filtro" role="group" aria-label="Filtrar por región"></div>
+    <div class="grid" id="videos"></div>
+  </section>
+
+  <section>
+    <p class="etq">Complemento · Procedimiento</p>
     <h2>Paso a paso del <b>armado</b></h2>
     <p class="bajada">Conector mecánico SC/APC. Elige el tipo de conector que vas a armar.</p>
     <div class="tabs" id="tipoConector" role="group" aria-label="Tipo de conector"></div>
