@@ -70,6 +70,7 @@
     display: grid; place-content: center; justify-items: center; gap: 10px; color: #c9d7ee;
     background: linear-gradient(135deg, #00306a, var(--navy-dark)); font: 300 13px var(--font); letter-spacing: .1em; text-transform: uppercase;
   }
+  .poster.con-foto { background-size: cover; background-position: center; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.6); }
   .poster:hover { filter: brightness(1.15); }
   .poster.off { cursor: default; filter: none; }
   .poster .play { width: 54px; height: 54px; border: 1.5px solid rgba(255,255,255,.6); border-radius: 50%; display: grid; place-items: center; }
@@ -262,11 +263,12 @@
 //   tecnico: nombre que se muestra (puede ir vacío o solo el primer nombre)
 //   fecha  : "AAAA-MM-DD" (el más nuevo sale primero)
 //   id     : el número de Vimeo (lo que va después de vimeo.com/). Vacío = "pronto".
+//   miniatura: foto de portada del video (opcional), por ejemplo "fotos/video_123.jpg"
 //   hash   : solo si el video es "no listado": vimeo.com/123456789/abcdef1234 -> "abcdef1234"
 var REGIONES = ["Arica", "Quinta región", "RM"];
 
 var VIDEOS = [
-  { region: "Quinta región", titulo: "Armado del conector", tecnico: "Tomas Ponce", fecha: "2026-10-30", id: "1241466378", hash: "" },
+  { region: "Quinta región", titulo: "Armado del conector", tecnico: "Tomas Ponce", fecha: "2026-10-30", id: "1241466378", hash: "", miniatura: "fotos/video_1241466378.jpg" },
 ];
 
 // Formulario oficial de autochequeo (Microsoft Forms)
@@ -298,6 +300,10 @@ var FORM_URL = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=zW1hHAx
     if (v.id) {
       poster.innerHTML = '<span class="play"></span><span>Ver video</span>';
       poster.setAttribute("aria-label", "Reproducir: " + v.titulo);
+      if (v.miniatura) {
+        poster.classList.add("con-foto");
+        poster.style.backgroundImage = "linear-gradient(rgba(0,31,70,.25), rgba(0,31,70,.5)), url('" + v.miniatura + "')";
+      }
       poster.addEventListener("click", function () {   // el iframe se carga solo al tocar
         var f = document.createElement("iframe");
         f.src = "https://player.vimeo.com/video/" + encodeURIComponent(v.id) +
