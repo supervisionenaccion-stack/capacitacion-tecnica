@@ -124,6 +124,9 @@
   .cierre p { margin: 0 0 8px; color: var(--muted); font-size: 15.5px; }
   .foto-prueba { display: block; max-width: 100%; max-height: 260px; width: auto; height: auto; margin-top: 14px; border: 1px solid var(--line); }
   .cierre.ancho { grid-column: 1 / -1; }
+  .cierre.clave { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; border-top-color: var(--navy); }
+  .cierre.clave .foto-prueba { margin-top: 0; max-height: 300px; justify-self: center; }
+  @media (max-width: 760px) { .cierre.clave { grid-template-columns: 1fr; gap: 0; } .cierre.clave .foto-prueba { margin-top: 14px; } }
   .cierre h3 { margin: 0 0 10px; font-size: 20px; font-weight: 600; color: var(--navy); }
   .cierre ul { margin: 0; padding-left: 20px; }
   .cierre li { margin-bottom: 6px; }
@@ -203,7 +206,7 @@
           <li>Un conector puede parecer bien armado y estar malo. Pruébalo con el VFL antes de dejarlo instalado.</li>
           <li>Si no hay continuidad o la alineación no es correcta, el conector quedó mal: ármalo de nuevo.</li>
         </ul>
-        <img class="foto-prueba" src="fotos/vfl_oneclick.jpg" alt="Limpiador OneClick y linterna localizadora VFL" loading="lazy">
+        <img class="foto-prueba" src="fotos/vfl.jpg" alt="Linterna localizadora VFL" loading="lazy">
       </div>
       <div class="cierre">
         <h3>3. Mide la potencia óptica</h3>
@@ -233,6 +236,18 @@
           <li>Foto de la potencia desde la ONT.</li>
         </ul>
       </div>
+      <div class="cierre ancho clave">
+        <div>
+          <h3>6. Cuida tus equipos: limpieza y tapas</h3>
+          <p>Esto debe quedarte muy claro: la limpieza es lo primordial.</p>
+          <ul>
+            <li>La limpieza de los sensores y emisores del VFL, los OneClick y el power meter es fundamental para que funcionen bien.</li>
+            <li>Cuida sus tapas: aseguran la vida útil de estas herramientas.</li>
+            <li>Si en la auditoría las tapas no están presentes, es un incumplimiento.</li>
+          </ul>
+        </div>
+        <img class="foto-prueba" src="fotos/equipos.jpg" alt="VFL, OneClick y power meter" loading="lazy">
+      </div>
     </div>
   </section>
 
@@ -251,7 +266,7 @@
 var REGIONES = ["Arica", "Quinta región", "RM"];
 
 var VIDEOS = [
-  { region: "General", titulo: "Preparación y corte de fibra", tecnico: "", fecha: "2026-11-02", id: "", hash: "" },
+  { region: "Quinta región", titulo: "Armado del conector", tecnico: "Tomas Ponce", fecha: "2026-10-30", id: "1241466378", hash: "" },
   { region: "General", titulo: "Armado del conector",          tecnico: "", fecha: "2026-11-02", id: "", hash: "" }
 ];
 
@@ -335,17 +350,17 @@ var FORM_URL = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=zW1hHAx
   var INICIO = [
     { i: "rosca", t: "Inserta la tapa rosca en el cable antes de preparar la fibra.", n: "Nunca la pongas después de pelar, limpiar y cortar: así evitas contaminar o quebrar la fibra." },
     { i: "deschaquetadora", t: "Introduce el cable en la deschaquetadora hasta el número 5. Quedan 4,5 cm de cubierta." },
-    { t: "Deschaqueta el cable." },
+    { i: "real_deschaqueta", t: "Deschaqueta el cable." },
     { i: "pelado", t: "Pela la fibra con la plantilla homologada de 30 mm que viene con los conectores." },
-    { t: "Limpia la fibra con papel de limpieza y alcohol isopropílico.", n: "El papel de limpieza no se reutiliza." },
-    { i: "plantilla", t: "Guía la fibra por la parte superior de la plantilla homologada." },
-    { i: "cortadora", t: "Pon la plantilla en la cortadora homologada y corta. Con la plantilla el corte queda en 30 mm." },
-    { i: "fibra_cortada", t: "Revisa que la fibra quede cortada tal como lo muestra el manual." }
+    { i: "real_limpieza", t: "Limpia la fibra con papel de limpieza y alcohol isopropílico.", n: "El papel de limpieza no se reutiliza." },
+    { i: "real_plantilla", t: "Guía la fibra por la parte superior de la plantilla homologada." },
+    { i: "real_cortadora", t: "Pon la plantilla en la cortadora homologada y corta. Con la plantilla el corte queda en 30 mm." },
+    { i: "real_fibra_cortada", t: "Revisa que la fibra quede cortada tal como lo muestra el manual." }
   ];
   var MEDIO = {
     caiman: [
       { i: "caiman_tapa", t: "Levanta la tapa posterior. El seguro naranjo debe apuntar hacia la entrada del conector.", v: true },
-      { t: "Inserta con cuidado la fibra por el canal central del conector.", v: true },
+      { i: "real_caiman_paso10", t: "Inserta con cuidado la fibra por el canal central del conector.", v: true },
       { i: "caiman_seguro", t: "Con la fibra adentro, tira el seguro en sentido contrario.", v: true }
     ],
     pinza: [
@@ -354,10 +369,10 @@ var FORM_URL = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=zW1hHAx
     ]
   };
   var FINAL = [
-    { t: "Enrosca la rosca en el conector para fijar la fibra." },
+    { i: "real_caiman_fibra", t: "Enrosca la rosca en el conector para fijar la fibra." },
     { i: "cubierta_verde", t: "Inserta la cubierta verde. Su pestaña debe quedar en el lado opuesto al seguro naranjo." },
-    { t: "No retires la tapa protectora hasta conectar el conector a la NAP, FAT o CTO y a la roseta óptica." },
-    { i: "oneclick_tipos", t: "Antes de conectar a la caja terminal óptica, limpia el conector y el puerto con OneClick tradicional o con OneClick tipo Z.", n: "Hazlo aunque el conector venga sellado y embalado.\nLos OneClick deben estar con sus tapas puestas: sin tapa no pasan la auditoría.\nEl VFL también debe estar con su tapa, para evitar suciedad." }
+    { i: "real_tapa_protectora", t: "No retires la tapa protectora hasta conectar el conector a la NAP, FAT o CTO y a la roseta óptica." },
+    { i: "oneclick_calidad", t: "Antes de conectar a la caja terminal óptica, limpia el conector y el puerto con OneClick tradicional o con OneClick tipo Z.", n: "Hazlo aunque el conector venga sellado y embalado.\nLos OneClick deben estar con sus tapas puestas: sin tapa no pasan la auditoría.\nEl VFL también debe estar con su tapa, para evitar suciedad." }
   ];
   var tipoActivo = "caiman", lp = document.getElementById("pasos"), tt = document.getElementById("tipoConector");
   function pintarPasos() {
