@@ -59,6 +59,10 @@
   .tab[aria-pressed="true"] { color: var(--navy); border-bottom-color: var(--amber); }
 
   /* videos */
+  .btn-videos { display: inline-block; max-width: 100%; text-align: left; padding: 12px 22px; border: 1px solid var(--navy); background: var(--white); color: var(--navy); font: 600 15px var(--font); cursor: pointer; }
+  .btn-videos:hover, .btn-videos[aria-expanded="true"] { background: var(--navy); color: #fff; }
+  #bloqueVideos { margin-top: 24px; }
+  #videos-seccion { scroll-margin-top: 80px; }
   .grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
   @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
   .card { background: var(--white); border: 1px solid var(--line); border-top: 3px solid var(--navy); transition: box-shadow .2s; }
@@ -174,12 +178,15 @@
     </div>
   </section>
 
-  <section>
+  <section id="videos-seccion">
     <p class="etq">Complemento · Recordatorio</p>
     <h2>Videos de <b>armado</b> conector de campo</h2>
     <p class="bajada">Ya sabes armar el conector de campo: aquí se te recuerda el procedimiento con videos de tus compañeros. Cada semana se suma el video de un técnico.</p>
-    <div class="tabs" id="filtro" role="group" aria-label="Filtrar por región"></div>
-    <div class="grid" id="videos"></div>
+    <button type="button" class="btn-videos" id="btnVideos" aria-expanded="false" aria-controls="bloqueVideos">Ver videos</button>
+    <div id="bloqueVideos" hidden>
+      <div class="tabs" id="filtro" role="group" aria-label="Filtrar por región"></div>
+      <div class="grid" id="videos"></div>
+    </div>
   </section>
 
   <section>
@@ -259,6 +266,7 @@
 <script>
 // ---- Editar aquí --------------------------------------------------------
 // Para agregar un video nuevo: copia una línea de VIDEOS y cambia los datos.
+//   Los videos salen plegados: el técnico los abre con "Ver videos".
 //   region : "Arica", "Quinta región", "RM" (o "General" para videos de referencia)
 //   tecnico: nombre que se muestra (puede ir vacío o solo el primer nombre)
 //   fecha  : "AAAA-MM-DD" (el más nuevo sale primero)
@@ -351,6 +359,17 @@ var FORM_URL = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=zW1hHAx
     tabs.appendChild(b);
   });
   pintarVideos();
+
+  // los videos van plegados: se abren con el botón o con el enlace de arriba
+  var bloque = document.getElementById("bloqueVideos"), btnV = document.getElementById("btnVideos");
+  function verVideos(abrir) {
+    bloque.hidden = !abrir;
+    btnV.setAttribute("aria-expanded", abrir);
+    btnV.textContent = abrir ? "Ocultar videos" : "Ve los videos de tus compañeros armando el conector (" + VIDEOS.length + ")";
+  }
+  verVideos(false);
+  btnV.addEventListener("click", function () { verVideos(bloque.hidden); });
+  if (location.hash === "#videos-seccion") verVideos(true);   // enlace directo a los videos
 
   // ---------- Paso a paso del armado ----------
   var INICIO = [
