@@ -85,6 +85,7 @@
   .meta .fecha { font: 500 12px ui-monospace, Consolas, monospace; color: var(--muted); }
   .card h3 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.25; color: var(--navy); }
   .card .tec { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
+  .card .obs { margin: 8px 0 0; padding: 6px 10px; font-size: 13px; font-weight: 600; color: #8a5a12; background: #fdf1e2; border-left: 3px solid #e2962e; border-radius: 4px; }
   .vacia { grid-column: 1 / -1; background: var(--white); border: 1px dashed var(--line-strong); padding: 36px; text-align: center; color: var(--muted); }
 
   /* autochequeo */
@@ -272,12 +273,14 @@
 //   fecha  : "AAAA-MM-DD" (el más nuevo sale primero)
 //   id     : el número de Vimeo (lo que va después de vimeo.com/). Vacío = "pronto".
 //   miniatura: foto de portada del video (opcional), por ejemplo "fotos/video_123.jpg"
+//   obs    : observación del video (opcional), se muestra destacada en la tarjeta
 //   hash   : solo si el video es "no listado": vimeo.com/123456789/abcdef1234 -> "abcdef1234"
 var REGIONES = ["Arica", "Quinta región", "RM"];
 
 var VIDEOS = [
-  { region: "Quinta región", titulo: "Armado del conector", tecnico: "Tomas Ponce", fecha: "2026-10-30", id: "1241466378", hash: "", miniatura: "fotos/video_1241466378.jpg" },
+  { region: "Quinta región", titulo: "Armado del conector", tecnico: "Tomas Ponce", fecha: "2026-10-30", id: "1241466378", hash: "", miniatura: "fotos/video_1241466378.jpg", obs: "Insertó la rosca antes de cerrar el seguro" },
   { region: "RM", titulo: "Armado del conector", tecnico: "Andres Rodriguez", fecha: "2026-11-02", id: "1242463711", hash: "", miniatura: "fotos/video_1242463711.jpg" },
+  { region: "Arica", titulo: "Armado del conector", tecnico: "Dario Chambe", fecha: "2026-11-03", id: "1242812804", hash: "", miniatura: "fotos/video_1242812804.jpg", obs: "Olvidó usar OneClick (limpieza del conector)" },
 ];
 
 // Formulario oficial de autochequeo (Microsoft Forms)
@@ -332,6 +335,7 @@ var FORM_URL = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=zW1hHAx
     body.appendChild(meta);
     var h = document.createElement("h3"); h.textContent = v.titulo; body.appendChild(h);
     if (v.tecnico) { var p = document.createElement("p"); p.className = "tec"; p.textContent = "Técnico: " + v.tecnico; body.appendChild(p); }
+    if (v.obs) { var o = document.createElement("p"); o.className = "obs"; o.textContent = "Observación: " + v.obs; body.appendChild(o); }
     card.appendChild(player); card.appendChild(body);
     return card;
   }
