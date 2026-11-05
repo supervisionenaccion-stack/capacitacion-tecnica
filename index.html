@@ -165,7 +165,7 @@
     <p class="bajada">Revisa que lleves todo contigo y responde el formulario oficial, una vez por semana.</p>
     <div class="panel">
       <div>
-        <p class="lista-titulo">El formulario revisa 73 puntos:</p>
+        <p class="lista-titulo">El formulario revisa 27 puntos:</p>
         <ul class="revisas">
           <li>Herramientas de fibra óptica y medición</li>
           <li>Herramientas y equipos de trabajo</li>
@@ -176,87 +176,6 @@
         <p class="semana" id="semana"></p>
       </div>
       <a class="btn-main" id="btnForm" href="#" target="_blank" rel="noopener"><small>Semana en curso</small>Hacer el autochequeo &rarr;</a>
-    </div>
-  </section>
-
-  <section id="videos-seccion">
-    <p class="etq">Complemento · Recordatorio</p>
-    <h2>Videos de <b>armado</b> conector de campo</h2>
-    <p class="bajada">Ya sabes armar el conector de campo: aquí se te recuerda el procedimiento con videos de tus compañeros. Cada semana se suma el video de un técnico.</p>
-    <button type="button" class="btn-videos" id="btnVideos" aria-expanded="false" aria-controls="bloqueVideos">Ver videos</button>
-    <div id="bloqueVideos" hidden>
-      <div class="tabs" id="filtro" role="group" aria-label="Filtrar por región"></div>
-      <div class="grid" id="videos"></div>
-    </div>
-  </section>
-
-  <section>
-    <p class="etq">Complemento · Procedimiento</p>
-    <h2>Paso a paso del <b>armado</b></h2>
-    <p class="bajada">Conector mecánico SC/APC. Elige el tipo de conector que vas a armar.</p>
-    <div class="tabs" id="tipoConector" role="group" aria-label="Tipo de conector"></div>
-    <ol class="pasos" id="pasos"></ol>
-    <h2 class="sub">Después del <b>armado</b></h2>
-    <p class="bajada">Un conector armado no está listo hasta que lo pruebas. Estos pasos van después del armado, según el manual.</p>
-    <div class="pruebas">
-      <div class="cierre">
-        <h3>1. Identifica el puerto</h3>
-        <ul>
-          <li>Una vez armado el conector, identifica el puerto óptico asignado en el punto de terminación: NAP, FAT o CTO. Debe estar indicado en la orden de trabajo.</li>
-          <li>Verifica que el puerto indicado esté disponible (libre).</li>
-          <li>Una vez confirmado, limpia el conector con OneClick tradicional o con OneClick tipo Z y conecta el conector.</li>
-        </ul>
-        <img class="foto-prueba" src="fotos/oneclick_calidad.jpg" alt="OneClick tradicional y OneClick tipo Z" loading="lazy">
-      </div>
-      <div class="cierre">
-        <h3>2. Prueba con el VFL</h3>
-        <p>El VFL es la linterna localizadora. Permite verificar la continuidad y la correcta alineación del conector.</p>
-        <ul>
-          <li>Un conector puede parecer bien armado y estar malo. Pruébalo con el VFL antes de dejarlo instalado.</li>
-          <li>Si no hay continuidad o la alineación no es correcta, el conector quedó mal: ármalo de nuevo.</li>
-        </ul>
-        <img class="foto-prueba" src="fotos/vfl.jpg" alt="Linterna localizadora VFL" loading="lazy">
-      </div>
-      <div class="cierre">
-        <h3>3. Mide la potencia óptica</h3>
-        <p>Después de realizar la conexión, mide y valida la potencia óptica con el power meter, en la longitud de onda de 1490 nm.</p>
-        <ul>
-          <li>La potencia debe estar dentro de los rangos aceptables para garantizar un buen desempeño del servicio.</li>
-          <li>En la CTO o NAP, la potencia no debe ser menor que: −25 dBm en Red VTR, −26 dBm en Red Claro y −24 dBm en Red Neutra.</li>
-          <li>No debe existir una diferencia mayor a 2 dB entre la caja terminal óptica y la ONT. En una instalación domiciliaria, la pérdida del drop más la de los conectores tampoco debe superar 2 dB.</li>
-        </ul>
-        <img class="foto-prueba" src="fotos/powermeter.jpg" alt="Power meter midiendo a 1490 nm" loading="lazy">
-      </div>
-      <div class="cierre">
-        <h3>4. Si la potencia sale baja</h3>
-        <p>Muchas veces el problema no es el conector: es suciedad.</p>
-        <ul>
-          <li>Limpia el conector y el puerto con OneClick tradicional o con OneClick tipo Z. Se debe limpiar siempre, aunque el conector venga sellado y embalado.</li>
-          <li>Vuelve a medir con el power meter.</li>
-          <li>Si sigue baja, prueba el conector con el VFL.</li>
-        </ul>
-      </div>
-      <div class="cierre ancho">
-        <h3>5. Evidencia si debes escalar</h3>
-        <p>Si el servicio no funciona o la CTO está defectuosa, estas son las fotos que se piden:</p>
-        <ul>
-          <li>Foto de la potencia en la CTO. Debe mostrar el ID de la CTO (etiqueta), el conector del instrumento en la CTO, la banda de medición (1490 nm), el valor medido en dBm, y la georreferencia, fecha y hora.</li>
-          <li>Foto de la potencia después del cable drop.</li>
-          <li>Foto de la potencia desde la ONT.</li>
-        </ul>
-      </div>
-      <div class="cierre ancho clave">
-        <div>
-          <h3>6. Cuida tus equipos: limpieza y tapas</h3>
-          <p>Esto debe quedarte muy claro: la limpieza es lo primordial.</p>
-          <ul>
-            <li>La limpieza de los sensores y emisores del VFL, los OneClick y el power meter es fundamental para que funcionen bien.</li>
-            <li>Cuida sus tapas: aseguran la vida útil de estas herramientas.</li>
-            <li>Si en la auditoría las tapas no están presentes, es un incumplimiento.</li>
-          </ul>
-        </div>
-        <img class="foto-prueba" src="fotos/equipos.jpg" alt="VFL, OneClick y power meter" loading="lazy">
-      </div>
     </div>
   </section>
 
@@ -275,16 +194,8 @@
 //   miniatura: foto de portada del video (opcional), por ejemplo "fotos/video_123.jpg"
 //   obs    : observación del video (opcional), se muestra destacada en la tarjeta
 //   hash   : solo si el video es "no listado": vimeo.com/123456789/abcdef1234 -> "abcdef1234"
-var REGIONES = ["Arica", "Quinta región", "RM"];
-
-var VIDEOS = [
-  { region: "Quinta región", titulo: "Armado del conector", tecnico: "Tomas Ponce", fecha: "2026-10-30", id: "1241466378", hash: "", miniatura: "fotos/video_1241466378.jpg", obs: "Insertó la rosca antes de cerrar el seguro" },
-  { region: "RM", titulo: "Armado del conector", tecnico: "Andres Rodriguez", fecha: "2026-11-02", id: "1242463711", hash: "", miniatura: "fotos/video_1242463711.jpg" },
-  { region: "Arica", titulo: "Armado del conector", tecnico: "Dario Chambe", fecha: "2026-11-03", id: "1242812804", hash: "", miniatura: "fotos/video_1242812804.jpg", obs: "Olvidó usar OneClick (limpieza del conector)" },
-];
-
 // Formulario oficial de autochequeo (Microsoft Forms)
-var FORM_URL = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=zW1hHAxl90uFFXlYtLi6LMKYtFM_AvFFinBf-1N2HSxUOEJJV0VTME0wWVIwSjZIV1U1TkJUQVpWRi4u";
+var FORM_URL = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=zW1hHAxl90uFFXlYtLi6LMKYtFM_AvFFinBf-1N2HSxUOEtZNlVWQk01RjJKN0NVWjNKSU9RWTdPVi4u";
 // -------------------------------------------------------------------------
 
 (function () {
@@ -298,139 +209,6 @@ var FORM_URL = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=zW1hHAx
     if (i % 3 === 0) html += '<path class="pulso" d="' + d + '" style="animation-delay:' + (-i * 0.7) + 's"/>';
   }
   svg.innerHTML = html;
-
-  // ---------- Videos ----------
-  var cont = document.getElementById("videos"), tabs = document.getElementById("filtro");
-  var regionActiva = "Todas";
-  var ordenados = VIDEOS.slice().sort(function (a, b) { return (b.fecha || "").localeCompare(a.fecha || ""); });
-
-  function crearTarjeta(v) {
-    var card = document.createElement("div"); card.className = "card";
-    var player = document.createElement("div"); player.className = "player";
-    var poster = document.createElement("button");
-    poster.type = "button"; poster.className = "poster";
-    if (v.id) {
-      poster.innerHTML = '<span class="play"></span><span>Ver video</span>';
-      poster.setAttribute("aria-label", "Reproducir: " + v.titulo);
-      if (v.miniatura) {
-        poster.classList.add("con-foto");
-        poster.style.backgroundImage = "linear-gradient(rgba(0,31,70,.25), rgba(0,31,70,.5)), url('" + v.miniatura + "')";
-      }
-      poster.addEventListener("click", function () {   // el iframe se carga solo al tocar
-        var f = document.createElement("iframe");
-        f.src = "https://player.vimeo.com/video/" + encodeURIComponent(v.id) +
-                (v.hash ? "?h=" + encodeURIComponent(v.hash) + "&autoplay=1" : "?autoplay=1");
-        f.title = v.titulo; f.allow = "autoplay; fullscreen; picture-in-picture"; f.allowFullscreen = true;
-        player.replaceChildren(f);
-      });
-    } else {
-      poster.className = "poster off"; poster.disabled = true;
-      poster.innerHTML = '<span class="play"></span><span>Video disponible pronto</span>';
-    }
-    player.appendChild(poster);
-    var body = document.createElement("div"); body.className = "cuerpo";
-    var meta = document.createElement("div"); meta.className = "meta";
-    var r = document.createElement("span"); r.className = "reg"; r.textContent = v.region; meta.appendChild(r);
-    if (v.fecha) { var f2 = document.createElement("span"); f2.className = "fecha"; f2.textContent = fmt(v.fecha); meta.appendChild(f2); }
-    body.appendChild(meta);
-    var h = document.createElement("h3"); h.textContent = v.titulo; body.appendChild(h);
-    if (v.tecnico) { var p = document.createElement("p"); p.className = "tec"; p.textContent = "Técnico: " + v.tecnico; body.appendChild(p); }
-    if (v.obs) { var o = document.createElement("p"); o.className = "obs"; o.textContent = "Observación: " + v.obs; body.appendChild(o); }
-    card.appendChild(player); card.appendChild(body);
-    return card;
-  }
-
-  function pintarVideos() {
-    cont.replaceChildren();
-    var lista = ordenados.filter(function (v) { return regionActiva === "Todas" || v.region === regionActiva; });
-    if (!lista.length) {
-      var e = document.createElement("div"); e.className = "vacia";
-      e.textContent = "Aún no hay videos de " + regionActiva + ". Se irán sumando cada semana.";
-      cont.appendChild(e); return;
-    }
-    lista.forEach(function (v) { cont.appendChild(crearTarjeta(v)); });
-  }
-
-  ["Todas"].concat(REGIONES).forEach(function (r) {
-    var b = document.createElement("button");
-    b.type = "button"; b.className = "tab"; b.textContent = r;
-    b.setAttribute("aria-pressed", r === regionActiva);
-    b.addEventListener("click", function () {
-      regionActiva = r;
-      tabs.querySelectorAll(".tab").forEach(function (c) { c.setAttribute("aria-pressed", c === b); });
-      pintarVideos();
-    });
-    tabs.appendChild(b);
-  });
-  pintarVideos();
-
-  // los videos van plegados: se abren con el botón o con el enlace de arriba
-  var bloque = document.getElementById("bloqueVideos"), btnV = document.getElementById("btnVideos");
-  function verVideos(abrir) {
-    bloque.hidden = !abrir;
-    btnV.setAttribute("aria-expanded", abrir);
-    btnV.textContent = abrir ? "Ocultar videos" : "Ve los videos de tus compañeros armando el conector (" + VIDEOS.length + ")";
-  }
-  verVideos(false);
-  btnV.addEventListener("click", function () { verVideos(bloque.hidden); });
-  if (location.hash === "#videos-seccion") verVideos(true);   // enlace directo a los videos
-
-  // ---------- Paso a paso del armado ----------
-  var INICIO = [
-    { i: "rosca", t: "Inserta la tapa rosca en el cable antes de preparar la fibra.", n: "Nunca la pongas después de pelar, limpiar y cortar: así evitas contaminar o quebrar la fibra." },
-    { i: "deschaquetadora", t: "Introduce el cable en la deschaquetadora hasta el número 5. Quedan 4,5 cm de cubierta." },
-    { i: "real_deschaqueta", t: "Deschaqueta el cable." },
-    { i: "pelado", t: "Pela la fibra con la plantilla homologada de 30 mm que viene con los conectores." },
-    { i: "real_limpieza", t: "Limpia la fibra con papel de limpieza y alcohol isopropílico.", n: "El papel de limpieza no se reutiliza." },
-    { i: "real_plantilla", t: "Guía la fibra por la parte superior de la plantilla homologada." },
-    { i: "real_cortadora", t: "Pon la plantilla en la cortadora homologada y corta. Con la plantilla el corte queda en 30 mm." },
-    { i: "real_fibra_cortada", t: "Revisa que la fibra quede cortada tal como lo muestra el manual." }
-  ];
-  var MEDIO = {
-    caiman: [
-      { i: "caiman_tapa", t: "Levanta la tapa posterior. El seguro naranjo debe apuntar hacia la entrada del conector.", v: true },
-      { i: "real_caiman_paso10", t: "Inserta con cuidado la fibra por el canal central del conector.", v: true },
-      { i: "caiman_seguro", t: "Con la fibra adentro, tira el seguro en sentido contrario.", v: true }
-    ],
-    pinza: [
-      { i: "pinza_curva", t: "Inserta la fibra en el conector. Comprueba que quede con una curva leve.", v: true },
-      { i: "pinza_seguro", t: "Corre el seguro hacia la derecha.", v: true }
-    ]
-  };
-  var FINAL = [
-    { i: "real_caiman_fibra", t: "Enrosca la rosca en el conector para fijar la fibra." },
-    { i: "cubierta_verde", t: "Inserta la cubierta verde. Su pestaña debe quedar en el lado opuesto al seguro naranjo." },
-    { i: "real_tapa_protectora", t: "No retires la tapa protectora hasta conectar el conector a la NAP, FAT o CTO y a la roseta óptica." },
-    { i: "oneclick_calidad", t: "Antes de conectar a la caja terminal óptica, limpia el conector y el puerto con OneClick tradicional o con OneClick tipo Z.", n: "Hazlo aunque el conector venga sellado y embalado.\nLos OneClick deben estar con sus tapas puestas: sin tapa no pasan la auditoría.\nEl VFL también debe estar con su tapa, para evitar suciedad." }
-  ];
-  var tipoActivo = "caiman", lp = document.getElementById("pasos"), tt = document.getElementById("tipoConector");
-  function pintarPasos() {
-    lp.replaceChildren();
-    INICIO.concat(MEDIO[tipoActivo], FINAL).forEach(function (p, i) {
-      var li = document.createElement("li"); li.className = "paso" + (p.v ? " var" : "");
-      var n = document.createElement("div"); n.className = "num"; n.textContent = i + 1;
-      var c = document.createElement("div"); c.className = "cont";
-      var tx = document.createElement("p"); tx.textContent = p.t; c.appendChild(tx);
-      if (p.n) { var nt = document.createElement("div"); nt.className = "nota"; nt.textContent = p.n; c.appendChild(nt); }
-      if (p.i) {
-        var im = document.createElement("img"); im.className = "foto"; im.src = "fotos/" + p.i + ".jpg";
-        im.alt = "Foto del paso " + (i + 1); im.loading = "lazy"; c.appendChild(im);
-      }
-      li.appendChild(n); li.appendChild(c); lp.appendChild(li);
-    });
-  }
-  [["caiman", "Tipo Caimán"], ["pinza", "Tipo Pinza"]].forEach(function (o) {
-    var b = document.createElement("button");
-    b.type = "button"; b.className = "tab"; b.textContent = o[1];
-    b.setAttribute("aria-pressed", o[0] === tipoActivo);
-    b.addEventListener("click", function () {
-      tipoActivo = o[0];
-      tt.querySelectorAll(".tab").forEach(function (c) { c.setAttribute("aria-pressed", c === b); });
-      pintarPasos();
-    });
-    tt.appendChild(b);
-  });
-  pintarPasos();
 
   // ---------- Autochequeo semanal ----------
   var d = new Date(); d.setHours(0, 0, 0, 0);
